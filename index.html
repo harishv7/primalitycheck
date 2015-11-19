@@ -77,22 +77,20 @@
 	            	<script>
 	            		function checkPrime() {
 	            			var numToCheck = document.getElementById('num').value;
+
 	            			$('.result').empty();
 	            			if(numToCheck == "") {
 	            				$(".result").append("<h3>You have not entered anything!</h3>");
 	            			} else if (numToCheck == 1 || numToCheck == 0 || numToCheck < 0) {
 	            				$(".result").append("<h3>" + numToCheck + " is not prime! <h3>");
 	            			} else {	
-	            				var isPrime = true;
-
-	            				for(m = 2 ; m < (Math.sqrt(numToCheck)) ; m++) {
+	            				var count = 0;
+	            				for(m = 1 ; m <= Math.sqrt(numToCheck); m++) {
 	            					if(numToCheck % m === 0) {
-	            						isPrime = false;
-	            					} else {
-	            						isPrime = true;
+	            						count += 1;
 	            					}
 	            				}
-	            				if (isPrime) {
+	            				if (count === 1) {
 	            					$(".result").append("<h3>" + numToCheck + " is prime! </h3>");
 	            				} else {
 	            					$(".result").append("<h3>" + numToCheck + " is not prime! <h3>");
